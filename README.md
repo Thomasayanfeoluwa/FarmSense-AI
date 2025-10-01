@@ -16,3 +16,7 @@ This repository contains the complete implementation developed between September
 ## Update 3
 - Added new features on October 13, 2025
 - Improved functionality and performance
+
+## Update 4
+- Added new features on October 02, 2025
+- Improved functionality and performance
