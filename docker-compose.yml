@@ -1,0 +1,146 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crop_monitor_backend:latest
+    env_file:
+      - ./.env
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
+    ports:
+      - "${BACKEND_PORT}:8000"
+    volumes:
+      - models_data:/app/models
+      - data:/app/data
+      - logs:/app/logs
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: crop_monitor_frontend:latest
+    env_file:
+      - ./.env
+    ports:
+      - "${FRONTEND_PORT}:8501"
+    volumes:
+      - ./frontend:/app/frontend:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+      - mongodb
+      - redis
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  grafana:
+    image: grafana/grafana:latest
+    env_file:
+      - ./.env
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana_dashboards.json:/etc/grafana/provisioning/dashboards/grafana_dashboards.json:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - backend_net
+
+  # Optional exporters for better observability
+  redis_exporter:
+    image: oliver006/redis_exporter:latest
+    command: ["--redis.addr", "redis:6379"]
+    ports:
+      - "9121:9121"
+    networks:
+      - backend_net
+    restart: unless-stopped
+
+  mongodb_exporter:
+    image: bitnami/mongodb-exporter:latest
+    environment:
+      - MONGODB_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017
+    ports:
+      - "9216:9216"
+    networks:
+      - backend_net
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+  models_data:
+  data:
+  logs:
+
+networks:
+  backend_net:

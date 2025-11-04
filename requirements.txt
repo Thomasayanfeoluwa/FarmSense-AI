@@ -1,0 +1,170 @@
+# =========================
+# Core Utilities
+# =========================
+pip>=23.2.1
+setuptools>=68.0.0
+wheel>=0.40.0
+numpy
+pandas
+matplotlib
+seaborn
+plotly
+tqdm
+python-dateutil
+pytz
+tzlocal
+joblib
+cachetools
+fpdf2
+
+# =========================
+# Machine Learning
+# =========================
+scipy
+scikit-learn
+xgboost
+lightgbm
+prophet
+statsmodels
+dask
+polars
+
+# =========================
+# Deep Learning
+# =========================
+tensorflow
+torch
+torchvision
+torchaudio
+keras-tuner
+# tensorflow-addons
+tensorboard
+
+# =========================
+# Computer Vision
+# =========================
+opencv-python
+Pillow
+albumentations
+imageio
+scikit-image
+imgaug
+grad-cam
+
+# =========================
+# FastAPI & Web
+# =========================
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
+python-dotenv
+typer
+click
+streamlit
+gradio
+
+# =========================
+# MLOps / Experiment Tracking
+# =========================
+mlflow
+dvc
+great-expectations
+evidently
+wandb
+optuna
+scikit-optimize
+
+# =========================
+# Database & Storage
+# =========================
+sqlalchemy
+pymongo
+motor
+psycopg2-binary
+google-cloud-storage
+pandas-gbq
+firebase-admin
+stripe
+paystackapi
+redis
+
+# =========================
+# Task Queue & Messaging
+# =========================
+celery
+twilio
+requests
+aiohttp
+httpx
+beautifulsoup4
+selenium
+boto3
+
+# =========================
+# Geospatial
+# =========================
+rasterio
+geopandas
+geopy
+pyproj
+shapely
+folium
+sentinelhub
+sentinelsat
+earthengine-api
+owslib
+
+# =========================
+# Edge AI & Optimization
+# =========================
+onnx
+onnxruntime
+openvino
+
+# =========================
+# Audio / Voice
+# =========================
+vosk
+SpeechRecognition
+
+# =========================
+# Security & Authentication
+# =========================
+cryptography
+python-jose
+passlib
+bcrypt
+authlib
+
+# =========================
+# Monitoring & Observability
+# =========================
+prometheus-client
+grafana-client
+sentry-sdk
+loguru
+
+# =========================
+# Development & Testing
+# =========================
+black
+flake8
+mypy
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
+pytest-xdist
+hypothesis
+locust
+
+# =========================
+# Documentation
+# =========================
+sphinx
+sphinx-rtd-theme
+mkdocs
+mkdocs-material
+zipfile38

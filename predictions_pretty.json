@@ -1,0 +1,162 @@
+[
+    {
+        "disease": "Grape Healthy",
+        "confidence": 0.9051306843757629,
+        "treatment": "Extremely high humidity - increase fungicide frequency and monitor leaf wetness. | Low organic matter - consider compost or green manure. | Treatment guidance for Grape Healthy | No recent rainfall - irrigation may be needed to maintain plant health. | Nitrogen deficient - apply suitable nitrogen fertilizer. | Phosphorus deficient - apply phosphate fertilizer. | Potassium deficient - apply potash fertilizer. | No intervention required, continue regular monitoring.",
+        "soil": {
+            "soil_type": "3.6895668481034285",
+            "risk_level": "Medium",
+            "source": "fallback",
+            "sand": 40.0,
+            "silt": 30.0,
+            "clay": 30.0,
+            "organic_matter": 2.0,
+            "ph_level": 6.5,
+            "cec": 15.0
+        },
+        "satellite": {
+            "ndvi": 0.63,
+            "health_status": "excellent",
+            "recommendations": "Moderate vegetation health. Monitor for changes.",
+            "timestamp": "2025-09-20T02:40:37.244610",
+            "source": "sentinelhub"
+        },
+        "weather": {
+            "temperature": 15.46,
+            "humidity": 94,
+            "conditions": "overcast clouds",
+            "rain_last_hour": 0,
+            "wind_speed": 1.03,
+            "timestamp": "2025-09-20T02:40:36.331594",
+            "source": "openweathermap"
+        }
+    },
+    {
+        "disease": "Corn Northern Leaf Blight",
+        "confidence": 0.30233079195022583,
+        "treatment": "Extremely high humidity - increase fungicide frequency and monitor leaf wetness. | Low organic matter - consider compost or green manure. | Treatment guidance for Corn Northern Leaf Blight | Nitrogen deficient - apply suitable nitrogen fertilizer. | Phosphorus deficient - apply phosphate fertilizer. | Potassium deficient - apply potash fertilizer. | General recommendation: monitor crop, adjust environment, and consult agronomist for Corn Northern Leaf Blight.",
+        "soil": {
+            "soil_type": "3.6895668481034285",
+            "risk_level": "Medium",
+            "source": "fallback",
+            "sand": 40.0,
+            "silt": 30.0,
+            "clay": 30.0,
+            "organic_matter": 2.0,
+            "ph_level": 6.5,
+            "cec": 15.0
+        },
+        "satellite": {
+            "ndvi": 0.55,
+            "health_status": "good",
+            "recommendations": "Moderate vegetation health. Monitor for changes.",
+            "timestamp": "2025-09-20T02:40:37.556620",
+            "source": "sentinelhub"
+        },
+        "weather": {
+            "temperature": 22.63,
+            "humidity": 95,
+            "conditions": "light rain",
+            "rain_last_hour": 0.24,
+            "wind_speed": 1.66,
+            "timestamp": "2025-09-20T02:40:36.784739",
+            "source": "openweathermap"
+        }
+    },
+    {
+        "disease": "Grape Black Rot",
+        "confidence": 0.5758751034736633,
+        "treatment": "Extremely high humidity - increase fungicide frequency and monitor leaf wetness. | Low organic matter - consider compost or green manure. | Treatment guidance for Grape Black Rot | No recent rainfall - irrigation may be needed to maintain plant health. | Nitrogen deficient - apply suitable nitrogen fertilizer. | Phosphorus deficient - apply phosphate fertilizer. | Potassium deficient - apply potash fertilizer. | Rot or mold detected - improve drainage, remove infected tissue, and apply suitable treatment.",
+        "soil": {
+            "soil_type": "3.6895668481034285",
+            "risk_level": "Medium",
+            "source": "fallback",
+            "sand": 40.0,
+            "silt": 30.0,
+            "clay": 30.0,
+            "organic_matter": 2.0,
+            "ph_level": 6.5,
+            "cec": 15.0
+        },
+        "satellite": {
+            "ndvi": 0.65,
+            "health_status": "excellent",
+            "recommendations": "Moderate vegetation health. Monitor for changes.",
+            "timestamp": "2025-09-20T02:40:37.970957",
+            "source": "sentinelhub"
+        },
+        "weather": {
+            "temperature": 22.63,
+            "humidity": 98,
+            "conditions": "overcast clouds",
+            "rain_last_hour": 0,
+            "wind_speed": 2.51,
+            "timestamp": "2025-09-20T02:40:37.224845",
+            "source": "openweathermap"
+        }
+    },
+    {
+        "disease": "Grape Black Rot",
+        "confidence": 0.9117138385772705,
+        "treatment": "Extremely high humidity - increase fungicide frequency and monitor leaf wetness. | Low organic matter - consider compost or green manure. | Treatment guidance for Grape Black Rot | No recent rainfall - irrigation may be needed to maintain plant health. | Nitrogen deficient - apply suitable nitrogen fertilizer. | Phosphorus deficient - apply phosphate fertilizer. | Potassium deficient - apply potash fertilizer. | Rot or mold detected - improve drainage, remove infected tissue, and apply suitable treatment.",
+        "soil": {
+            "soil_type": "3.6895668481034285",
+            "risk_level": "Medium",
+            "source": "fallback",
+            "sand": 40.0,
+            "silt": 30.0,
+            "clay": 30.0,
+            "organic_matter": 2.0,
+            "ph_level": 6.5,
+            "cec": 15.0
+        },
+        "satellite": {
+            "ndvi": 0.72,
+            "health_status": "excellent",
+            "recommendations": "Healthy vegetation detected. Maintain current practices.",
+            "timestamp": "2025-09-20T02:42:38.832831",
+            "source": "sentinelhub"
+        },
+        "weather": {
+            "temperature": 22.67,
+            "humidity": 96,
+            "conditions": "overcast clouds",
+            "rain_last_hour": 0,
+            "wind_speed": 2.22,
+            "timestamp": "2025-09-20T02:42:37.354515",
+            "source": "openweathermap"
+        }
+    },
+    {
+        "disease": "Grape Black Rot",
+        "confidence": 0.7779868245124817,
+        "treatment": "Extremely high humidity - increase fungicide frequency and monitor leaf wetness. | Low organic matter - consider compost or green manure. | Treatment guidance for Grape Black Rot | No recent rainfall - irrigation may be needed to maintain plant health. | Nitrogen deficient - apply suitable nitrogen fertilizer. | Phosphorus deficient - apply phosphate fertilizer. | Potassium deficient - apply potash fertilizer. | Rot or mold detected - improve drainage, remove infected tissue, and apply suitable treatment.",
+        "soil": {
+            "soil_type": "3.6895668481034285",
+            "risk_level": "Medium",
+            "source": "fallback",
+            "sand": 40.0,
+            "silt": 30.0,
+            "clay": 30.0,
+            "organic_matter": 2.0,
+            "ph_level": 6.5,
+            "cec": 15.0
+        },
+        "satellite": {
+            "ndvi": 0.57,
+            "health_status": "good",
+            "recommendations": "Moderate vegetation health. Monitor for changes.",
+            "timestamp": "2025-09-20T02:42:39.314571",
+            "source": "sentinelhub"
+        },
+        "weather": {
+            "temperature": 21.39,
+            "humidity": 91,
+            "conditions": "overcast clouds",
+            "rain_last_hour": 0,
+            "wind_speed": 1.21,
+            "timestamp": "2025-09-20T02:42:37.804939",
+            "source": "openweathermap"
+        }
+    }
+]
