@@ -809,67 +809,7 @@ async def predict(
         logger.error(f"Prediction pipeline global error: {e}")
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail="Unexpected server error")
-    
-
-@app.post("/predict/debug")
-async def predict_debug(
-    file: UploadFile = File(...),
-    lat: float = Form(...),
-    lon: float = Form(...),
-):
-    """Debug endpoint to diagnose prediction issues"""
-    try:
-        logger.info(f"🔧 DEBUG: Starting prediction debug for {file.filename}")
-        
-        # Test file reading
-        file_content = await file.read()
-        await file.seek(0)
-        logger.info(f"🔧 DEBUG: File size: {len(file_content)} bytes")
-        
-        # Test image processing
-        img = Image.open(io.BytesIO(file_content))
-        logger.info(f"🔧 DEBUG: Image format: {img.format}, size: {img.size}, mode: {img.mode}")
-        
-        # Test disease service directly
-        try:
-            disease_result = await disease_service.predict_disease_unified(
-                files=[file],                       
-                lats=[lat],                       
-                lons=[lon],                       
-                soil_service=soil_service,
-                weather_service=weather_service,
-                db_sqlite_conn=database_service.sqlite_conn,                  
-                predictions_collection=database_service.predictions_collection,
-                output_csv_path=CSV_FILE_PATH
-            )
-            logger.info(f"🔧 DEBUG: Disease result: {disease_result}")
-        except Exception as e:
-            logger.error(f"🔧 DEBUG: Disease service failed: {e}")
-            return {"error": f"Disease service failed: {str(e)}"}
-        
-        # Test soil service
-        try:
-            soil_analysis = soil_service.get_soil_analysis(lat, lon)
-            logger.info(f"🔧 DEBUG: Soil analysis: {soil_analysis}")
-        except Exception as e:
-            logger.error(f"🔧 DEBUG: Soil service failed: {e}")
-            return {"error": f"Soil service failed: {str(e)}"}
-            
-        return {
-            "status": "debug_complete",
-            "file_info": {
-                "name": file.filename,
-                "size": len(file_content),
-                "format": img.format,
-                "dimensions": f"{img.size[0]}x{img.size[1]}"
-            },
-            "disease_result": disease_result[0] if disease_result else {},
-            "soil_analysis": soil_analysis
-        }
-        
-    except Exception as e:
-        logger.error(f"🔧 DEBUG: Global error: {e}")
-        return {"error": f"Global error: {str(e)}"}    
+     
 
 
 # ------------------ Helper: Flatten dictionary ------------------ #
